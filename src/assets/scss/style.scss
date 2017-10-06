@@ -1,0 +1,181 @@
+@import "variables";
+@import "mixin";
+
+html {
+    box-sizing: border-box;
+    font-size: 16px;
+    font-family: 'Roboto', sans-serif;
+}
+
+*,
+*:before,
+*:after {
+    box-sizing: inherit;
+    margin: 0;
+}
+
+.profile-frame {
+    background-color: $color-frame;
+    width: 100vw;
+    height: 100vh;
+    padding: 100px 80px;
+
+}
+
+.profile-card {
+    background-color: white;
+    width: 100%;
+    height: 100%;
+    display: grid;
+    grid-template-columns: 2fr 1fr;
+}
+
+.profile {
+    padding: 0;
+    display: flex;
+    flex-direction: column;
+    min-width: 580px;
+    min-height: 80% ;
+    .job,
+    .name,
+    .image {
+        text-align: center;
+    }
+
+
+}
+
+.image {
+    @include border-radius(50%);
+    background-color: $color-blue;
+    width: 125px;
+    height: 125px;
+    margin: 0px auto;
+    margin-top: 100px;
+    color: white;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+
+}
+
+.job {
+    font-size: 16px;
+    margin-top: -10px;
+    margin-bottom: -10px;
+    height: 45px;
+    
+}
+
+svg {
+    fill: currentColor;
+    width: 80px;
+    height: 60px;
+}
+
+.name {
+    font-size: 25px;
+    font-weight: bold;
+    color: black;
+    margin-top: 0px;
+    height: 50px;
+}
+
+.actions {
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    align-items: center;
+    height: 170px;
+    min-height: 130px;
+    margin-top: 10px;
+    margin-bottom: 100px;
+}
+
+.button {
+    @include border-radius(100px);
+    height: 65px;
+    min-height: 60px;
+    min-width: 370px;
+    border: 2px solid #555;
+    background-color: transparent;
+    font-weight: bold;
+    font-size: 18px;
+    color: $color-frame
+}
+
+.stats {
+    display: grid;
+    grid-template-rows: auto;
+    grid-row-gap: 3px;
+    max-height: 100%;
+    .box {
+        background-color: $color-blue;
+        display: flex;
+        color: white;
+        align-items: center;
+        flex-direction: column;
+        justify-content: center;
+        font-size: 30px;
+        .parameter {
+            font-size: 18px;
+        }
+    }
+}
+
+@media screen and (max-width: 770px)and (min-width:300px){
+    .profile-frame{
+        max-width: 768px;
+        width: auto;
+        height: 100vh;
+        padding: 15% 12%;
+    }
+    .profile-card{
+        max-width: 768px;
+        width: 100%;
+        min-width:200px;
+        overflow: hidden;
+        grid-template-columns: 1fr;
+        grid-template-rows: 60vh auto;
+    }
+    .profile{
+        max-width: 768px;
+        min-width: 200px;
+        width: auto;
+    }
+    .stats{
+        grid-template-columns: 1fr 1fr 1fr;
+        max-width: 768px;
+        min-width: 200px;
+        width: auto;
+        .box{
+            font-size: 30px;
+            .parameter{
+                font-size: 12px;
+            }
+        }
+    }
+    
+    .actions{
+        flex-direction:row;
+        max-width: 445px;
+        margin: auto;
+        justify-content: space-around;
+        
+    }
+    .button{
+        
+        max-width: 230px;
+        min-width: 70px;
+        padding-left: 30px;
+        padding-right: 30px;
+         @include border-radius(30px);
+        padding-top: 10px;
+        padding-bottom: 10px;
+    }
+    
+    
+}
+
+
